@@ -2,10 +2,10 @@
 
 exports[`CardHeader > renders correctly with default props 1`] = `
 <div
-  class="question-card-header"
+  class="_question-card-header_20dfd5"
 >
   <div
-    class="question-card-header-left"
+    class="_question-card-header-left_20dfd5"
   >
     What is your favorite color?
     <span
@@ -15,7 +15,7 @@ exports[`CardHeader > renders correctly with default props 1`] = `
     </span>
   </div>
   <div
-    class="question-card-header-right desktop"
+    class="_question-card-header-right_20dfd5 _desktop_20dfd5"
   >
     <span
       class="test-progress"

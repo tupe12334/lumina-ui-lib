@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { CardHeader } from './CardHeader'
+import styles from '../QuestionCard.module.css'
 
 describe('CardHeader', () => {
   const defaultProps = {
@@ -31,14 +32,14 @@ describe('CardHeader', () => {
 
   test('applies mobile class when isMobile is true', () => {
     const { container } = render(<CardHeader {...defaultProps} isMobile={true} />)
-    const rightElement = container.querySelector('.question-card-header-right')
-    expect(rightElement).toHaveClass('mobile')
+    const rightElement = container.querySelector(`.${styles['question-card-header-right']}`)
+    expect(rightElement).toHaveClass(styles['mobile'])
   })
 
   test('applies desktop class when isMobile is false', () => {
     const { container } = render(<CardHeader {...defaultProps} isMobile={false} />)
-    const rightElement = container.querySelector('.question-card-header-right')
-    expect(rightElement).toHaveClass('desktop')
+    const rightElement = container.querySelector(`.${styles['question-card-header-right']}`)
+    expect(rightElement).toHaveClass(styles['desktop'])
   })
 
   test('renders with complex question text', () => {
@@ -79,9 +80,9 @@ describe('CardHeader', () => {
   test('has correct structure with proper CSS classes', () => {
     const { container } = render(<CardHeader {...defaultProps} />)
 
-    const header = container.querySelector('.question-card-header')
-    const left = container.querySelector('.question-card-header-left')
-    const right = container.querySelector('.question-card-header-right')
+    const header = container.querySelector(`.${styles['question-card-header']}`)
+    const left = container.querySelector(`.${styles['question-card-header-left']}`)
+    const right = container.querySelector(`.${styles['question-card-header-right']}`)
 
     expect(header).toBeInTheDocument()
     expect(left).toBeInTheDocument()

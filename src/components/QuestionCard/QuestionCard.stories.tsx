@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 const mockQuestion = {
   id: '1',
-  text: { en_text: 'What is React?', he_text: 'מה זה React?' },
+  text: 'What is React?',
   type: 'selection',
   validationStatus: 'approved',
 };
@@ -23,24 +23,25 @@ const mockQuestion = {
 export const Default: Story = {
   args: {
     question: mockQuestion,
-    language: 'en',
     isMobile: false,
     submissionStats: null,
     isAuthenticated: false,
-    renderLink: ({ children }) => <a href="/test">{children}</a>,
-    renderCard: ({ children }) => (
-      <div style={{ padding: '16px', border: '1px solid #ccc', borderRadius: '8px' }}>
-        {children}
-      </div>
-    ),
-    renderText: ({ text }) => <span style={{ fontSize: '18px', fontWeight: 'bold' }}>{text}</span>,
-    renderBadge: ({ text, color }) => (
-      <span style={{ padding: '4px 8px', backgroundColor: color, borderRadius: '4px', fontSize: '12px' }}>
+    renderLink: ({ children }) => <div>{children}</div>,
+    renderCard: ({ children }) => <div>{children}</div>,
+    renderText: ({ text }) => <div style={{ fontSize: '16px', color: '#111827' }}>{text}</div>,
+    renderBadge: ({ text }) => (
+      <span style={{
+        padding: '4px 12px',
+        backgroundColor: '#3b82f6',
+        color: '#fff',
+        borderRadius: '4px',
+        fontSize: '12px',
+        display: 'inline-block'
+      }}>
         {text}
       </span>
     ),
     renderProgressIndicator: null,
-    translate: (text) => text.en_text,
     t: (key) => key,
   },
 };
@@ -51,8 +52,8 @@ export const WithModules: Story = {
     question: {
       ...mockQuestion,
       modules: [
-        { id: 'm1', name: { en_text: 'Mathematics', he_text: 'מתמטיקה' } },
-        { id: 'm2', name: { en_text: 'Algebra', he_text: 'אלגברה' } },
+        { id: 'm1', name: 'Mathematics' },
+        { id: 'm2', name: 'Algebra' },
       ],
     },
   },

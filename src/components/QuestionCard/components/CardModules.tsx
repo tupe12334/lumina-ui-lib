@@ -1,6 +1,7 @@
 /* eslint-disable lumina-custom/require-component-tests-and-screenshots */
 import type { JSX, ReactNode } from 'react';
 import type { ModuleRef } from '../../../types/question';
+import styles from '../QuestionCard.module.css';
 
 interface CardModulesProps {
   questionId: string;
@@ -19,10 +20,10 @@ export function CardModules(props: CardModulesProps): JSX.Element {
   return (
     <div
       id={`question-modules-${questionId}`}
-      className="question-card-modules"
+      className={styles['question-card-modules']}
     >
       {modules.map((module) => (
-        <span key={module.id} className="module-badge-wrapper">
+        <span key={module.id} className={styles['module-badge-wrapper']}>
           {renderBadge({
             questionId,
             color: 'blue',
