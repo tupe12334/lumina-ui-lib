@@ -39,7 +39,7 @@ describe('QuestionsList', () => {
 
   it('applies correct className to container', () => {
     const { container } = render(<QuestionsList {...defaultProps} />);
-    const listContainer = container.querySelector('.questions-list-container');
+    const listContainer = container.querySelector('#questions-list-container');
     expect(listContainer).toBeInTheDocument();
   });
 

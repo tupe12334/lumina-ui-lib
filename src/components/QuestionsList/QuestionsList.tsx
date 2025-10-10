@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 import type { QuestionsListProps } from './types';
+import styles from './QuestionsList.module.css';
 
 export function QuestionsList(props: QuestionsListProps): JSX.Element {
   const {
@@ -17,7 +18,7 @@ export function QuestionsList(props: QuestionsListProps): JSX.Element {
   const questionsContent = (
     <div
       id="questions-list-container"
-      className="questions-list-container"
+      className={styles['questions-list-container']}
     >
       {questions.map((question) => {
         const submissionStats = getStatsForQuestion(question.id);
@@ -26,7 +27,7 @@ export function QuestionsList(props: QuestionsListProps): JSX.Element {
           <div
             key={question.id}
             id={`question-item-${question.id}`}
-            className="question-item"
+            className={styles['question-item']}
           >
             {renderQuestionCard({
               question,
@@ -46,7 +47,7 @@ export function QuestionsList(props: QuestionsListProps): JSX.Element {
   return (
     <div
       id="questions-infinite-scroll-wrapper"
-      className="questions-infinite-scroll-wrapper"
+      className={styles['questions-infinite-scroll-wrapper']}
     >
       {renderInfiniteScrollContainer({
         hasMore,

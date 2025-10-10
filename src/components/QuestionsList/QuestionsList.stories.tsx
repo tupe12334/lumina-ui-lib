@@ -19,12 +19,21 @@ const mockQuestions = [
     text: 'What is React?',
     type: 'selection',
     validationStatus: 'approved',
+    modules: [{ id: 'm1', name: 'JavaScript' }],
   },
   {
     id: '2',
     text: 'What is TypeScript?',
     type: 'boolean',
     validationStatus: 'approved',
+    modules: [{ id: 'm2', name: 'TypeScript' }],
+  },
+  {
+    id: '3',
+    text: 'What are React Hooks?',
+    type: 'selection',
+    validationStatus: 'approved',
+    modules: [{ id: 'm3', name: 'React' }],
   },
 ];
 
@@ -47,8 +56,37 @@ export const Default: Story = {
     isLoadingMore: false,
     onLoadMore: null,
     renderQuestionCard: ({ question }) => (
-      <div style={{ padding: '16px', border: '1px solid #ccc', borderRadius: '8px' }}>
-        {question.text}
+      <div style={{
+        padding: '20px',
+        backgroundColor: '#ffffff',
+        border: '1px solid #e5e7eb',
+        borderRadius: '12px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
+      }}>
+        <div style={{ fontSize: '16px', color: '#111827', fontWeight: '500' }}>
+          {question.text}
+        </div>
+        {question.modules && question.modules.length > 0 && (
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            {question.modules.map((module) => (
+              <span
+                key={module.id}
+                style={{
+                  padding: '4px 12px',
+                  backgroundColor: '#3b82f6',
+                  color: '#fff',
+                  borderRadius: '4px',
+                  fontSize: '12px',
+                  display: 'inline-block',
+                }}
+              >
+                {module.name}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     ),
     renderInfiniteScrollContainer: null,
@@ -61,7 +99,7 @@ export const WithInfiniteScroll: Story = {
     hasMore: true,
     onLoadMore: () => console.log('Load more'),
     renderInfiniteScrollContainer: ({ children }) => (
-      <div style={{ maxHeight: '400px', overflow: 'auto' }}>{children}</div>
+      <div style={{ maxHeight: '600px', overflow: 'auto' }}>{children}</div>
     ),
   },
 };
