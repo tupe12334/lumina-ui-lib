@@ -139,3 +139,6 @@ logs
 # Lock files (uncomment if you want to ignore lock files)
 # package-lock.json
 # yarn.lock
+
+# Turbo
+.turbo
